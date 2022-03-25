@@ -37,3 +37,10 @@ li a:hover {
 .active {
     background-color: #04AA6D;
 }
+
+.footer {
+    position: fixed;
+    text-align: left;
+    bottom: 0;
+    width: 100%;
+}
