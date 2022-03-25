@@ -3,17 +3,20 @@ import json
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
+
 
 @app.route('/help')
 def help():
     return render_template('help.html')
 
+
 @app.route('/api/get_data', methods=['GET'])
 def get_data():
-    with open("training_data.json", "r")as f:
+    with open("training_data.json", "r") as f:
         data = json.load(f)
         f.close()
 
@@ -24,6 +27,7 @@ def get_data():
 
     return make_response(response, 200)
 
+
 @app.route('/api/update_data', methods=['POST'])
 def update_data():
     attire = request.form['attire']
@@ -31,9 +35,12 @@ def update_data():
     timing = request.form['timing']
 
     # Input formatting
-    if attire == "": attire = "Empty Value Received"
-    if venue == "": venue = "Empty Value Received"
-    if timing == "": timing = "Empty Value Received"
+    if attire == "":
+        attire = "Empty Value Received"
+    if venue == "":
+        venue = "Empty Value Received"
+    if timing == "":
+        timing = "Empty Value Received"
 
     data = {
         "attire": attire,
@@ -46,6 +53,7 @@ def update_data():
         f.close()
 
     return render_template("updated.html")
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
