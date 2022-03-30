@@ -38,7 +38,7 @@ def update_data():
         attire = request.form['attire']
         venue = request.form['venue']
         timing = request.form['timing']
-        date = request.form['date'] # Date in form of yyyy-mm-dd
+        date = request.form['date']  # Date in form of yyyy-mm-dd
 
         timetable = request.files['timetable']
         fname = secure_filename(timetable.filename)
@@ -73,10 +73,10 @@ def update_data():
             os.remove(os.path.join(app.root_path, 'static', 'images', prevImg))
         except:
             print("[ERROR] Couldn't delete file!")
-            
+
         # Save image
         try:
-            timetable.save(os.path.join(app.root_path, 'static', 'images',  fname))
+            timetable.save(os.path.join(app.root_path, 'static', 'images', fname))
         except Exception as e:
             return render_template("errorUpload.html", errorLog=e)
 
@@ -87,6 +87,7 @@ def update_data():
 
         # return successfully updated
         return render_template("updated.html")
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
