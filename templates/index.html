@@ -8,19 +8,27 @@
 <form action="{{ url_for('update_data') }}" method="post" name="form" onsubmit="return isEmpty()" enctype="multipart/form-data">
 
     <label>Training Date</label>
-    <input type="date" name="date"><br><br>
+    <label>
+        <input type="date" name="date">
+    </label><br><br>
     
     <label>Training Timetable:</label>
     <input type="file" name="timetable"><br><br>
     
     <label>Attire:</label>
-    <input type="text" name="attire"><br><br>
+    <label>
+        <input type="text" name="attire">
+    </label><br><br>
     
     <label>Venue:</label>
-    <input type="text" name="venue"><br><br>
+    <label>
+        <input type="text" name="venue">
+    </label><br><br>
     
     <label>Timing:</label>
-    <input type="text" name="timing"><br><br>
+    <label>
+        <input type="text" name="timing">
+    </label><br><br>
 
     <input type="submit" value="Update">
 </form>
@@ -35,7 +43,7 @@
 
         var timetable = document.forms["form"]["timetable"].value;
     
-        if (attire == "" || venue == "" || timing == "" || timetable == "" || date == "") {
+        if (attire === "" || venue === "" || timing === "" || timetable === "" || date === "") {
             alert("Missing values, please fill up ALL fields.")
             return false;
         }
